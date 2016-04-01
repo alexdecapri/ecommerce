@@ -20,7 +20,12 @@ app.listen(port, function() {
 
 // Mongo (using mongoJS)
 var db = mongojs("ecommerce", ["products"]); //products is a collection of the ecommerce database
-// var Product = db.products; is this right?
+db.on("error", function(err) {
+  console.log("Database error: " + err)
+});
+db.on("connect", function() {
+  console.log("Mongo database connected");
+});
 
 // Mongo (using mongoose)
 // var Schema = mongoose.Schema;
@@ -39,20 +44,52 @@ var db = mongojs("ecommerce", ["products"]); //products is a collection of the e
 
 // Endpoints
 app.get("/api/products", function(req, res) {
-  res.send("Test GET for /api/products");
+  // var query = req.query;
+  db.products.find(req.query, function (err, result) { //empty object means no criteria, want all records in collection
+    if (err) res.status(500).send(err);
+    else res.json(result);
+  });
 });
+
 app.get("/api/products/:id", function(req, res) {
-  res.send("Test GET for /api/products using req.params.id!");
+  var id = req.params.id;
+  var convertedId = mongojs.ObjectId(id); //turns string into ObjectId type
+  var objId = {
+    _id: convertedId
+  };
+  // console.log(userId);
+  db.products.findOne(objId, function(err, result) {
+    if (err) res.status(500).send(err);
+    else res.json(result);
+  });
 });
+
 app.post("/api/products", function(req, res) {
   db.products.insert(req.body, function(err, result) {
     if (err) res.status(500).send(err);
     else res.json(result);
   });
 });
+
 app.put("/api/products/:id", function(req, res) {
-  res.send("Test PUT for /api/products using req.params.id!");
+  var id = req.params.id;
+  var query = {
+    _id: mongojs.ObjectId(id)
+  };
+  db.products.update(query, req.body, function(err, result) {
+    if (err) res.status(500).send(err);
+    else res.json(result);
+  });
 });
+
 app.delete("/api/products/:id", function(req, res) {
-  res.send("Test string in DELETE for /api/products using req.params.id!");
+  var id = req.params.id;
+  var query = {
+    _id: mongojs.ObjectId(id)
+  };
+  db.products.remove(query, function(err, result) {
+    console.log(err);
+    if (err) res.status(500).send(err);
+    else res.json(result);
+  });
 });
