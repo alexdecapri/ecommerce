@@ -11,6 +11,7 @@ var app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static("public")); //serves local files
 
 // Connections
 var port = 8000;
