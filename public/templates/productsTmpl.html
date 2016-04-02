@@ -1,10 +1,17 @@
 <div>
-  PRODUCTS PAGE
-  {{test}}
+  SEARCH: <br />
+  <form>
+    Type of clothing: <input type="text" placeholder="brand or clothing type" ng-model="search.type" /><br />
+    Color: <input type="text" name="color" placeholder="color" ng-model="search.color"/><br />
+    Size: <input type="text" name="size" placeholder="size" ng-model="search.size" /><br /><br />
+    <input type="submit" ng-click="makeTrue" />
+  </form>
+  <br /><br />
 </div>
-<div ng-repeat="product in allProducts">
-  Type: {{ product.type }}
-  Color: {{ product.color }}
-  Size: {{ product.size }}
-  Available: {{ product.numAvail }}
+
+<div ng-repeat="product in allProducts | filter:search:false">
+  Type: {{ product.type }} <br />
+  Color: {{ product.color }} <br />
+  Size: {{ product.size }} <br />
+  Available: {{ product.numAvail }} <br /> <br />
 </div>
