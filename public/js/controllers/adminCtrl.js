@@ -9,6 +9,9 @@ app.controller("adminCtrl", function($scope, productsService) {
 
   $scope.delete = function(id) {
     productsService.removeProduct(id);
+    productsService.getProducts().then(function(response) {
+      $scope.allProducts = response;
+    });
   }
 
   $scope.edit = function(id, data) { //the $scope.update variable is the data that's passed in

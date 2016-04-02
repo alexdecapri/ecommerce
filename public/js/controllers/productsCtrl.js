@@ -9,13 +9,11 @@ app.controller("productsCtrl", function($scope, productsService) {
   $scope.newProduct = function(data) {
     productsService.createProduct(data)
       .then(function(response) {
-        $scope.allProducts.forEach(function(product) {
-            product.name = response.name;
-            product.description = response.description;
-            product.price = response.price;
-        })
+        console.log(response);
+        productsService.getProducts().then(function(response) {
+          $scope.allProducts = response;
+        }); //makes it display automatically
       })
-        // console.log(response);
   };
 
 

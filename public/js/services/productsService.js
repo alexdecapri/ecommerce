@@ -39,7 +39,7 @@ app.service("productsService", function($http) {
       url:"/api/products",
       data: data //what req.body is referenced as
     }).then(function(response) {
-      console.log(response.data);
+      return response.data;
     })
   }
 
