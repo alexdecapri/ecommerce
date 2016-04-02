@@ -28,9 +28,13 @@ module.exports = {
   },
 
   update: function(req, res) {
-    Product.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+    console.log(req.params.id, req.body);
+    Product.findByIdAndUpdate(req.params.id, req.body, {new: true}, function(err, result) { //new: true is an option that makes the response give the newly editted object, not the old one
       if (err) res.status(500).send(err);
-      else res.json(result);
+      else {
+        console.log(result);
+        res.status(200).json(result);
+      }
     });
   },
 

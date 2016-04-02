@@ -2,6 +2,7 @@ var app = angular.module("ecommerce");
 
 app.controller("adminCtrl", function($scope, productsService) {
 
+  //retrieves all products as soon as server is connected
   productsService.getProducts().then(function(response) {
     $scope.allProducts = response;
   });
@@ -10,9 +11,21 @@ app.controller("adminCtrl", function($scope, productsService) {
     productsService.removeProduct(id);
   }
 
-  $scope.edit = function(id) {
-    productsService.editProduct(id);
+  $scope.edit = function(id, data) { //the $scope.update variable is the data that's passed in
+    productsService.editProduct(id, data)
+      .then(function(response){
+        $scope.allProducts.forEach(function(product) {
+          if (product._id === response._id) { //immediately updates object
+            product.name = response.name;
+            product.description = response.description;
+            product.price = response.price;
+          }
+        })
+        // console.log(response);
+      });
   }
+
+
 
   $scope.isTrue = false;
 
