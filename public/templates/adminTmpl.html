@@ -5,5 +5,15 @@
 <div ng-repeat="product in allProducts | filter:search">
   <strong>{{ product.name }}</strong> <br />
   Description: {{ product.description }} <br />
-  Price: {{ product.price }} <br /><br />
+  Price: {{ product.price }} <br />
+  <div class="edit-form" ng-hide=true ng-show="isTrue">
+    <input type="text" placeholder="Name" ng-model="update.name" />
+    <input type="text" placeholder="Description" ng-model="update.description" />
+    <input type="number" placeholder="Price" ng-model="update.price" />
+    <button ng-click="edit(product._id)">Update</button>
+  </div>
+  <div>
+    <button ng-click="showForm()">Edit</button>
+    <button ng-click="delete(product._id)">Delete</button><br /><br />
+  </div>
 </div>

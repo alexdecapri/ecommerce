@@ -1,14 +1,46 @@
+<!-- setting up filter -->
 <div>
   <strong>FILTER</strong>: <br />
-  <form>
-    Product: <input type="text" placeholder="Product" ng-model="search.name" /><br />
-    Price: <input type="text" placeholder="Price" ng-model="search.price"/><br />
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="product">Product</label>
+      <input type="text" class="form-control" id="product" placeholder="Product" ng-model="search.name" />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" placeholder="Price" ng-model="search.price" />
+    </div>
   </form>
+
   <br /><br />
 </div>
 
+<form class="form-inline">
+  <div class="form-group">
+    <label for="product2">Product</label>
+    <input type="text" class="form-control" id="product2" placeholder="Product" ng-model="create.name" />
+  </div>
+  <div class="form-group">
+    <label for="price2">Price</label>
+    <input type="text" class="form-control" id="price2" placeholder="Price" ng-model="create.price" />
+  </div>
+  <div class="form-group">
+    <label for="dscription">Price</label>
+    <input type="text" class="form-control" id="description" placeholder="Description" ng-model="create.description" />
+  </div>
+  <button type="submit" class="btn btn-default">Add Product</button>
+</form>
+<br /><br />
+
+<!-- list of products -->
 <div ng-repeat="product in allProducts | filter:search">
   <strong>{{ product.name }}</strong> <br />
   Description: {{ product.description }} <br />
   Price: {{ product.price }} <br /><br />
+</div>
+
+<!-- add a product -->
+<div>
+
 </div>

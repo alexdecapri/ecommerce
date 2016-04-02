@@ -12,10 +12,19 @@ module.exports = {
 
   read: function(req, res) {
     console.log("req.query: ", req.query);
-    Product.find(req.qeuery).exec(function(err, result) {
+    var id = req.query.id
+    if (id) {
+      Product.find({_id: id}).exec(function(err, result) {
       if (err) res.status(500).send(err);
       else res.json(result);
-    });
+      })
+    }
+    else {
+      Product.find({}).exec(function(err, result) {
+      if (err) res.status(500).send(err);
+      else res.json(result);
+      })
+    }
   },
 
   update: function(req, res) {
@@ -26,7 +35,7 @@ module.exports = {
   },
 
   delete: function(req, res) {
-    Product.findByIdAndRemove(req.params.id, function(req, res) {
+    Product.findByIdAndRemove(req.params.id, function(err, result) {
       if (err) res.status(500).send(err);
       else res.json(result);
     });

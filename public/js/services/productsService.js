@@ -7,24 +7,29 @@ app.service("productsService", function($http) {
       method: "GET",
       url: "/api/products"
     }).then(function(response) {
-      console.log(response);
+      // console.log(response);
       var data = response.data;
-      // var productsToDisplay = [];
-      // data.forEach(function(obj) {
-      //   var newObj = {
-      //     Type: obj.type,
-      //     Color: obj.color,
-      //     Size: obj.size,
-      //     Available: obj.numAvail
-      //   };
-      //   productsToDisplay.push(newObj);
-      // })
       return data;
-
     })
   }
 
-  this.getSomeProducts
+  this.removeProduct = function(id) {
+    return $http({
+      method: "DELETE",
+      url: "/api/products/" + id
+    }).then(function(response) {
+      console.log(response.data);
+    })
+  }
 
+
+  this.editProduct = function(id) {
+    return $http({
+      method:"PUT",
+      url: "/api/products/" + id
+    }).then(function(response) {
+      console.log(response.data);
+    })
+  }
 
 });
