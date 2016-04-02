@@ -10,7 +10,7 @@
     <input type="text" placeholder="Name" ng-model="update.name" />
     <input type="text" placeholder="Description" ng-model="update.description" />
     <input type="number" placeholder="Price" ng-model="update.price" />
-    <button ng-click="edit(product._id, update)">Update</button>
+    <button ng-click="edit(product._id, update); showForm()">Update</button>
   </div>
   <div>
     <button ng-click="showForm()">Edit</button>
