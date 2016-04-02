@@ -39,5 +39,17 @@ app.controller("adminCtrl", function($scope, productsService) {
     else $scope.isTrue = false;
   }
 
+  // $scope.showHide = function(index) {
+  //   $scope.activeProductIndex;
+  //   $scope.showForm = function(index) {
+  //     $scope.activeProductIndex = index;
+  //   }
+  //
+  //   $scope.isShowing = function(index) {
+  //     return $scope.activeProductIndex === index;
+  //   }
+  // }
+
+
 
 });
