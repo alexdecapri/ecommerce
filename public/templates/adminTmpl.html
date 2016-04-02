@@ -1,1 +1,9 @@
-ADMIN PAGE
+<div>
+  Admin Page <br /><br />
+</div>
+
+<div ng-repeat="product in allProducts | filter:search">
+  <strong>{{ product.name }}</strong> <br />
+  Description: {{ product.description }} <br />
+  Price: {{ product.price }} <br /><br />
+</div>

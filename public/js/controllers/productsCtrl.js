@@ -6,17 +6,4 @@ app.controller("productsCtrl", function($scope, productsService) {
      $scope.allProducts = response;
    });
 
-   $scope.getSomeProducts = function($scope.search) {
-     productsService.getSomeProducts
-   };
-
-   $scope.makeTrue = function() {
-     $scope.isTrue = true;
-   }
-
-   $scope.isTrue = false;
-
-
-
-
 });

@@ -24,7 +24,7 @@ mongoose.set("debug", true);
 mongoose.connect(mongoUri);
 var db = mongoose.connection;
 db.once("open", function() {
-  console.log("Connected to MongoDB at port: " + port); //connected here or at 27017?
+  console.log("Connected to MongoDB at port: " + 27017);
 });
 db.on("error", function(err) {
   if (err) {
