@@ -1,12 +1,12 @@
-var app = angular.module("ecommerce", ["ui-router"]);
+var app = angular.module("ecommerce", ["ui.router"]);
 
-app.config(function($stateProvider, @urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state("main", {
+    .state("products", {
       url:"/",
-      templateUrl:"/templates/mainTmpl.html",
-      controller:"homeCtrl"
+      templateUrl:"/templates/productsTmpl.html",
+      controller:"productsCtrl"
     })
 
     .state("admin", {

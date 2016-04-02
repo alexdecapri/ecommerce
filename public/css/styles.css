@@ -1,5 +1,6 @@
 body {
   background-color: whitesmoke;
+  font-family: serif;
 }
 
 .main-header {
@@ -17,7 +18,6 @@ body {
 }
 
 .h2-container h2 {
-  font-family: serif;
   color: whitesmoke;
   font-size: 3em;
   margin: 0;
@@ -26,4 +26,22 @@ body {
 .links-container {
   float: right;
   height: 100%;
+  margin-right: 30px;
 }
+
+ul {
+  list-style-type: none;
+}
+li {
+  display: inline-block;
+  margin: 25px 20px 0 0;
+  font-size: 1.5em;
+}
+ li a {
+   color: whitesmoke;
+   text-decoration: underline;
+ }
+
+ li a:hover {
+   color: yellow;
+ }
