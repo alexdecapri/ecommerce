@@ -28,15 +28,13 @@ app.controller("adminCtrl", function($scope, productsService) {
       });
   }
 
-
-
-  $scope.isTrue = false;
-
-  $scope.showForm = function() {
-    if ($scope.isTrue === false) {
-      $scope.isTrue = true;
-    }
-    else $scope.isTrue = false;
+  $scope.showForm = function(id) {
+    $scope.allProducts.forEach(function(product) {
+      product.showForm = false;
+      if (product._id === id) {
+        product.showForm = true;
+      }
+    })
   }
 
   // $scope.showHide = function(index) {
