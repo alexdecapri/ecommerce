@@ -28,14 +28,23 @@ app.controller("adminCtrl", function($scope, productsService) {
       });
   }
 
+
   $scope.showForm = function(id) {
     $scope.allProducts.forEach(function(product) {
       product.showForm = false;
       if (product._id === id) {
         product.showForm = true;
       }
-    })
+
+    });
   }
+  // $scope.closeForm = function(id) {
+  //   $scope.allProducts.forEach(function(product) {
+  //     if (prodcut.showForm === true) {
+  //       product.showForm = false;
+  //     }
+  //   })
+  // }
 
   // $scope.showHide = function(index) {
   //   $scope.activeProductIndex;

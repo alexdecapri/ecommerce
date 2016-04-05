@@ -39,3 +39,10 @@ app.get("/api/products", ProductModelCtrl.read); //now using queries instead of 
 app.post("/api/products", ProductModelCtrl.create);
 app.put("/api/products/:id", ProductModelCtrl.update);
 app.delete("/api/products/:id", ProductModelCtrl.delete);
+
+// app.post("api/user", );
+// app.post("api/order/:user_id", );
+// app.get("/api/order", );
+// app.post("/api/cart/:user_id", );
+// app.put("/api/cart/:user_id", );
+// app.get("/api/user/:id", );
