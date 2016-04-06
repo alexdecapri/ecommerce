@@ -5,7 +5,8 @@ module.exports = {
 
   create: function(req, res) {
     console.log(req.params.user_id, req.body);
-    User.findByIdAndUpdate(req.params.user_id, {$push: {Cart: req.body}}, function(err, result) {
+    User.findByIdAndUpdate(req.params.user_id, {$push: {cart: req.body}}, function(err, result) {
+      console.log(err);
       if (err) res.status(500).send(err);
       else res.json(result);
     });

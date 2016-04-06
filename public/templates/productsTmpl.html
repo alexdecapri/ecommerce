@@ -37,7 +37,8 @@
 <div ng-repeat="product in allProducts | filter:search">
   <strong>{{ product.name }}</strong> <br />
   Description: {{ product.description }} <br />
-  Price: {{ product.price }} <br /><br />
+  Price: {{ product.price }} <br />
+  <button ng-click="addToCart(product)">Add to Cart</button><br /><br />
 </div>
 
 <!-- add a product -->

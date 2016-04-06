@@ -16,6 +16,20 @@ app.controller("productsCtrl", function($scope, productsService) {
       })
   };
 
+  //test user
+  var userId = "5704631812d30dee43d5cb69";
+
+  $scope.addToCart = function(product) {
+    productsService.addToCart(product, userId).then(function(response) {
+      console.log(response);
+    }).catch(function(err){
+      console.log(err);
+
+    })
+  }
+
+
+
 
 
 });

@@ -43,5 +43,13 @@ app.service("productsService", function($http) {
     })
   }
 
+  this.addToCart = function(product, id) {
+    return $http({
+      method: "POST",
+      url: "/api/cart/" + id,
+      data: product
+    })
+  }
+
 
 });
