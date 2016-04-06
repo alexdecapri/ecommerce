@@ -6,14 +6,14 @@
   <strong>{{ product.name }}</strong> <br />
   Description: {{ product.description }} <br />
   Price: {{ product.price }} <br />
-  <div class="edit-form" ng-show="product.showForm">
+  <div class="edit-form" ng-show="product.isClicked">
     <input type="text" placeholder="Name" ng-model="update.name" />
     <input type="text" placeholder="Description" ng-model="update.description" />
     <input type="number" placeholder="Price" ng-model="update.price" />
-    <button ng-click="edit(product._id, update); showForm()">Update</button>
+    <button ng-click="edit(product._id, update)">Update</button>
   </div>
   <div>
-    <button ng-click="showForm(product._id)">Edit</button>
+    <button ng-click="showForm(product)">Edit</button>
     <button ng-click="delete(product._id)">Delete</button><br /><br />
   </div>
 </div>

@@ -1,10 +1,13 @@
 var app = angular.module("ecommerce");
 
-app.controller("adminCtrl", function($scope, productsService, usersService) {
+app.controller("adminCtrl", function($scope, productsService) {
 
   //retrieves all products as soon as server is connected
   productsService.getProducts().then(function(response) {
     $scope.allProducts = response;
+    $scope.allProducts.forEach(function(product) {
+      product.isClicked = false; //to make ng-show on adminTmpl.html false
+    });
   });
 
   $scope.delete = function(id) {
@@ -29,15 +32,11 @@ app.controller("adminCtrl", function($scope, productsService, usersService) {
   }
 
 
-  $scope.showForm = function(id) {
-    $scope.allProducts.forEach(function(product) {
-      product.showForm = false;
-      if (product._id === id) {
-        product.showForm = true;
+  $scope.showForm = function(product) {
+      if (product) {
+        product.isClicked = !product.isClicked;
       }
-
-    });
-  }
+  };
   // $scope.closeForm = function(id) {
   //   $scope.allProducts.forEach(function(product) {
   //     if (prodcut.showForm === true) {
