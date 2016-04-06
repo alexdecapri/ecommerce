@@ -48,4 +48,4 @@ app.post("/api/user", UserModelCtrl.create); //not in project guide...???
 // app.get("/api/order", OrderModelCtrl.read);
 // app.post("/api/cart/:user_id", CartModelCtrl.create);
 // app.put("/api/cart/:user_id", CartModelCtrl.update);
-// app.get("/api/user/:id", UserModelCtrl.read);
+app.get("/api/user/:user_id", UserModelCtrl.read);

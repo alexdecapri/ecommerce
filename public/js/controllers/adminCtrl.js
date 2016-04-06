@@ -58,11 +58,11 @@ app.controller("adminCtrl", function($scope, productsService, usersService) {
   // }
 
   // Day 3
-  usersService.addUser(data)
-    .then(function(response) {
-        console.log(response);
-    })
-  }
+  // usersService.addUser(data)
+  //   .then(function(response) {
+  //       console.log(response);
+  //   })
+  // }
 
 
 

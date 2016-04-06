@@ -12,7 +12,8 @@ module.exports = {
   },
 
   read: function(req, res) {
-    Users.findById(req.params.user_id).population("cart/products").exec()
+    console.log(req.params)
+    User.findById(req.params.user_id).populate("cart/products").exec()
       .then(function(result) {
         res.status(200).json(result);
       }, function(err) {
