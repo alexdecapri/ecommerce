@@ -25,6 +25,13 @@ module.exports = {
         });
       });
     })
+  },
+
+  read: function(req, res) {
+    Order.find(req.query, function(err, result) {
+      if (err) res.status(500).send(err);
+      else res.send(result);
+    })
   }
 
 
