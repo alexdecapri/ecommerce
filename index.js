@@ -33,6 +33,9 @@ db.on("error", function(err) {
 });
 
 var ProductModelCtrl = require("./api/controllers/ProductModelCtrl");
+var UserModelCtrl = require("./api/controllers/UserModelCtrl");
+var CartModelCtrl = require("./api/controllers/CartModelCtrl");
+var OrderModelCtrl = require("./api/controllers/OrderModelCtrl");
 
 // Endpoints
 app.get("/api/products", ProductModelCtrl.read); //now using queries instead of params
@@ -40,9 +43,9 @@ app.post("/api/products", ProductModelCtrl.create);
 app.put("/api/products/:id", ProductModelCtrl.update);
 app.delete("/api/products/:id", ProductModelCtrl.delete);
 
-// app.post("api/user", );
-// app.post("api/order/:user_id", );
-// app.get("/api/order", );
-// app.post("/api/cart/:user_id", );
-// app.put("/api/cart/:user_id", );
-// app.get("/api/user/:id", );
+app.post("/api/user", UserModelCtrl.create); //not in project guide...???
+// app.post("/api/order/:user_id", OrderModelCtrl.create);
+// app.get("/api/order", OrderModelCtrl.read);
+// app.post("/api/cart/:user_id", CartModelCtrl.create);
+// app.put("/api/cart/:user_id", CartModelCtrl.update);
+// app.get("/api/user/:id", UserModelCtrl.read);

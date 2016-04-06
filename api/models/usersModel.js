@@ -1,4 +1,6 @@
 var mongoose = require("mongoose");
+var cartsModel = require("./cartsModel");
+var ordersModel = require("./ordersModel");
 
 var usersModel = new mongoose.Schema({
   name: {type: String, required: true},

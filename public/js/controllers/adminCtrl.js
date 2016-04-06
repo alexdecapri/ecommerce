@@ -1,6 +1,6 @@
 var app = angular.module("ecommerce");
 
-app.controller("adminCtrl", function($scope, productsService) {
+app.controller("adminCtrl", function($scope, productsService, usersService) {
 
   //retrieves all products as soon as server is connected
   productsService.getProducts().then(function(response) {
@@ -56,6 +56,13 @@ app.controller("adminCtrl", function($scope, productsService) {
   //     return $scope.activeProductIndex === index;
   //   }
   // }
+
+  // Day 3
+  usersService.addUser(data)
+    .then(function(response) {
+        console.log(response);
+    })
+  }
 
 
 
