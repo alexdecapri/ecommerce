@@ -43,16 +43,7 @@ app.service("productsService", function($http) {
     })
   }
 
-  this.userSignIn = function(data) {
-    return $http({
-      method: "POST",
-      url: "/api/user",
-      data: data
-    }).then(function(response) {
-      // console.log(response.data);
-      return response.data;
-    })
-  }
+
 
   this.addToCart = function(product, id) {
     return $http({

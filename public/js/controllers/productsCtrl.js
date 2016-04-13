@@ -1,6 +1,6 @@
 var app = angular.module("ecommerce");
 
-app.controller("productsCtrl", function($scope, productsService) {
+app.controller("productsCtrl", function($scope, productsService, usersService) {
 
   productsService.getProducts().then(function(response) {
     $scope.allProducts = response;
@@ -8,7 +8,7 @@ app.controller("productsCtrl", function($scope, productsService) {
 
   $scope.userSignIn = function(data) {
     console.log(data);
-    productsService.userSignIn(data).then(function(response) {
+    usersService.userSignIn(data).then(function(response) {
       console.log(response);
       // return response;
     }).catch(function(err) {

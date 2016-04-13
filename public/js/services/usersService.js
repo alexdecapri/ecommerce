@@ -2,14 +2,27 @@ var app = angular.module("ecommerce");
 
 app.service("usersService", function($http) {
 
-  // this.addUser = function(data) {
-  //   return $http({
-  //     method: "POST",
-  //     url: "/api/user",
-  //     data: data //what req.body is referenced as
-  //   }).then(function(response) {
-  //     return response.data;
-  //   })
-  // }
+  var user = {};
+
+  this.isSignedIn = function() {
+
+  };
+
+  this.getCurrentUser = function() {
+
+  };
+
+  this.userSignIn = function(data) {
+    return $http({
+      method: "POST",
+      url: "/api/user",
+      data: data
+    }).then(function(response) {
+      // console.log(response.data);
+      return response.data;
+      user = response.data;
+      // console.log(this.user);
+    })
+  }
 
 })
