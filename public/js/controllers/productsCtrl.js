@@ -6,15 +6,26 @@ app.controller("productsCtrl", function($scope, productsService) {
     $scope.allProducts = response;
   });
 
-  $scope.newProduct = function(data) {
-    productsService.createProduct(data)
-      .then(function(response) {
-        console.log(response);
-        productsService.getProducts().then(function(response) {
-          $scope.allProducts = response;
-        }); //makes it display automatically
-      })
-  };
+  $scope.userSignIn = function(data) {
+    console.log(data);
+    productsService.userSignIn(data).then(function(response) {
+      console.log(response);
+      // return response;
+    }).catch(function(err) {
+      console.log(err);
+      // return err;
+    })
+  }
+
+  // $scope.newProduct = function(data) {
+  //   productsService.createProduct(data)
+  //     .then(function(response) {
+  //       console.log(response);
+  //       productsService.getProducts().then(function(response) {
+  //         $scope.allProducts = response;
+  //       }); //makes it display automatically
+  //     })
+  // };
 
   //test user
   var userId = "5704631812d30dee43d5cb69";

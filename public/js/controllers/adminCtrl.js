@@ -17,6 +17,16 @@ app.controller("adminCtrl", function($scope, productsService) {
     });
   }
 
+  $scope.newProduct = function(data) {
+    productsService.createProduct(data)
+      .then(function(response) {
+        console.log(response);
+        productsService.getProducts().then(function(response) {
+          $scope.allProducts = response;
+        }); //makes it display automatically
+      })
+  };
+
   $scope.edit = function(id, data) { //the $scope.update variable is the data that's passed in
     productsService.editProduct(id, data)
       .then(function(response){

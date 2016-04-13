@@ -1,3 +1,23 @@
+<!-- User Creation / Sign In -->
+<div>
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="name" ng-model="user.name" />
+    </div>
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" placeholder="email" ng-model="user.email" />
+    </div>
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="text" class="form-control" id="password" placeholder="password" ng-model="user.password" />
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="userSignIn(user)">Sign In</button>
+  </form>
+</div>
+<br /><br />
+
 <!-- setting up filter -->
 <div>
   <strong>FILTER</strong>: <br />
@@ -16,22 +36,7 @@
   <br /><br />
 </div>
 
-<form class="form-inline">
-  <div class="form-group">
-    <label for="product2">Product</label>
-    <input type="text" class="form-control" id="product2" placeholder="Product" ng-model="create.name" />
-  </div>
-  <div class="form-group">
-    <label for="price2">Price</label>
-    <input type="text" class="form-control" id="price2" placeholder="Price" ng-model="create.price" />
-  </div>
-  <div class="form-group">
-    <label for="dscription">Price</label>
-    <input type="text" class="form-control" id="description" placeholder="Description" ng-model="create.description" />
-  </div>
-  <button type="submit" class="btn btn-default" ng-click="newProduct(create)">Add Product</button>
-</form>
-<br /><br />
+
 
 <!-- list of products -->
 <div ng-repeat="product in allProducts | filter:search">
