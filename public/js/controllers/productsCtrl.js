@@ -44,6 +44,14 @@ app.controller("productsCtrl", function($scope, productsService, usersService) {
     else $scope.visibleSignIn = false;
   };
 
+  $scope.getUserByEmail = function(data) {
+    usersService.getUserByEmail($scope.loginInfo.email).then(function(result) {
+      console.log(result);
+    }).catch(function(err) {
+      console.log(err);
+    })
+  };
+
   // $scope.newProduct = function(data) {
   //   productsService.createProduct(data)
   //     .then(function(response) {

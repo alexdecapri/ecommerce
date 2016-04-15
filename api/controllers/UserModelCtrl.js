@@ -20,6 +20,15 @@ module.exports = {
       }, function(err) {
         res.status(500).send(err);
       })
+  },
+
+  locate: function(req, res) {
+    console.log(req.body);
+    var email = req.body
+    User.find({email: email}).exec(function(err, result) {
+      if (err) res.status(500).send(err);
+      else res.json(result);
+    })
   }
 
 };

@@ -39,4 +39,15 @@ app.service("usersService", function($http) {
     })
   }
 
+  this.getUserByEmail = function(email) {
+    return $http({
+      type: "GET",
+      url: "/api/user/" + email,
+      data: {email, email}
+    }).then(function(results) {
+      console.log(results.data);
+      return results.data;
+    });
+  }
+
 })
