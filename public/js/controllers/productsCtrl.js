@@ -6,16 +6,43 @@ app.controller("productsCtrl", function($scope, productsService, usersService) {
     $scope.allProducts = response;
   });
 
+  $scope.newUser = function(data) {
+    console.log(data);
+    usersService.userSignUp(data).then(function(response) {
+        // console.log(response);
+      return response;
+    }).catch(function(err) {
+      // console.log(err);
+      return err;
+    })
+  }
+
   $scope.userSignIn = function(data) {
     console.log(data);
     usersService.userSignIn(data).then(function(response) {
-      console.log(response);
-      // return response;
+      // console.log(reponse);
     }).catch(function(err) {
       console.log(err);
-      // return err;
     })
   }
+
+  $scope.visibleSignIn = false;
+  $scope.visibleSignUp = false;
+
+
+  $scope.changeSignUp = function() {
+    if ($scope.visibleSignUp === false) {
+      $scope.visibleSignUp = true;
+    }
+    else $scope.visibleSignUp = false;
+  };
+
+  $scope.changeSignIn = function() {
+    if ($scope.visibleSignIn === false) {
+      $scope.visibleSignIn = true;
+    }
+    else $scope.visibleSignIn = false;
+  };
 
   // $scope.newProduct = function(data) {
   //   productsService.createProduct(data)
