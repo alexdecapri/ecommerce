@@ -23,7 +23,7 @@ module.exports = {
   },
 
   locate: function(req, res) {
-    console.log(req.body);
+    console.log(req.params);
     var email = req.body
     User.find({email: email}).exec(function(err, result) {
       if (err) res.status(500).send(err);
