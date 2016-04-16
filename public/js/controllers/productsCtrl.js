@@ -6,9 +6,9 @@ app.controller("productsCtrl", function($scope, productsService, usersService) {
     $scope.allProducts = response;
   });
 
-  $scope.newUser = function(data) {
+  $scope.register = function(data) {
     console.log(data);
-    usersService.userSignUp(data).then(function(response) {
+    usersService.register(data).then(function(response) {
         // console.log(response);
       return response;
     }).catch(function(err) {
@@ -19,7 +19,7 @@ app.controller("productsCtrl", function($scope, productsService, usersService) {
 
   $scope.userSignIn = function(data) {
     console.log(data);
-    usersService.userSignIn(data).then(function(response) {
+    usersService.login(data).then(function(response) {
       // console.log(reponse);
     }).catch(function(err) {
       console.log(err);
