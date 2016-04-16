@@ -6,16 +6,35 @@ app.controller("productsCtrl", function($scope, productsService, usersService) {
     $scope.allProducts = response;
   });
 
-  $scope.register = function(data) {
-    console.log(data);
-    usersService.register(data).then(function(response) {
-        // console.log(response);
-      return response;
-    }).catch(function(err) {
-      // console.log(err);
-      return err;
-    })
-  }
+  // $scope.register = function(data) {
+  //   console.log(data);
+  //   usersService.register(data).then(function(response) {
+  //       // console.log(response);
+  //     return response;
+  //   }).catch(function(err) {
+  //     // console.log(err);
+  //     return err;
+  //   })
+  // }
+
+  $scope.register = function() {
+      if ($scope.user.password !== $scope.password) {
+          $scope.error = 'Please make sure your passwords match!';
+      } else {
+          authService.register($scope.user).then(function(newUser) {
+              console.log('New User: ', newUser);
+              authService.login($scope.user).then(function() {
+                  $scope.user = {};
+                  $scope.password = '';
+                  $location.path('/dashboard');
+              }, function(err) {
+                  $scope.error = err.message;
+              });
+          }, function(err) {
+              $scope.error = err.message;
+          });
+      }
+  };
 
   $scope.userSignIn = function(data) {
     console.log(data);
